@@ -89,4 +89,32 @@ HTML 元素以结束标签终止
   </style>
   </head>
   ```
+  
+### 内联样式
+当特殊的样式需要应用到个别元素时，可以在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。以下实例显示出如何改变段落的颜色和左外边距。
+```shell
+<p style="color: red; margin-left: 20px">
+This is a paragraph
+</p>
+```
+
+## HTML超链接
+ `href` 属性(链接别人) - 创建指向另一个文档的链接
+ 
+ `name` 属性（被别人链接） - 创建文档内的书签(使用命名锚（named anchors）时，我们可以创建直接跳至该命名锚（比如页面中某个小节）的链接)
+ ```shell
+ <a name="tips">基本的注意事项 - 有用的提示</a>
+ <a href="#tips">有用的提示</a>
+ 
+ //在其他页面中创建指向该锚的链接:# 符号和锚名称添加到 URL 的末端
+ <a href="http://www.w3school.com.cn/html/html_links.asp#tips">有用的提示</a>
+ ```
+ 
+ 使用  `Target` 属性，定义被链接的文档在何处显示:新窗口 or 当前窗口
+```shell
+<a href="http://www.w3school.com.cn/" target="_blank">Visit W3School!</a>
+```
+
+**注意：** 假如页面被固定在框架之内 `target="_top"` 跳出框架，在当前窗口显示。
+
 
