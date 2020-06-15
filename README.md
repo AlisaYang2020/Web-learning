@@ -25,8 +25,13 @@ HTML 文档由嵌套的 HTML 元素构成
 </html>
 
 <p> 元素定义了 HTML 文档中的一个段落
+  
 元素内容是：This is my first paragraph。
+
 <body> 元素定义了 HTML 文档的主体。
+  
 元素内容是另一个 HTML 元素（p 元素）。
+
 <html> 元素定义了整个 HTML 文档。
+  
 元素内容是另一个 HTML 元素（body 元素）。
