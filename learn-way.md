@@ -23,3 +23,26 @@ HTML 元素以结束标签终止
 
 </html>
 ```
+`<p>` 元素定义了 HTML 文档中的一个段
+
+元素内容是：This is my first paragraph
+
+`<body>` 元素定义了 HTML 文档的主体。
+
+元素内容是另一个 HTML 元素（p 元素）。
+
+`<html>` 元素定义了整个 HTML 文档。
+
+元素内容是另一个 HTML 元素（body 元素）。
+
+`style` 属性: 提供了一种改变所有 HTML 元素的样式的通用方法
+
+**HTML参考手册：**https://www.w3school.com.cn/tags/index.asp
+
+##### HTML文本格式化
+
+加粗、字号、斜体、上下标、强调、增删字
+
+`<b>`加粗； `<strong>`加重语气。注意二者区别
+
+
