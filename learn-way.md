@@ -191,6 +191,8 @@ alt="Sun" />
 
 `<div>`块级元素，定义文档中的分区或节，浏览器会在其前后显示折行。与 CSS 一同使用，可对大的内容块设置样式属性； 另一个常见的用途是文档布局。
 
+常用作布局工具，因为能够轻松地通过 CSS 对其进行定位
+
 `<span>`内联元素，组合文档中的行内元素，用作文本的容器。与 CSS 一同使用时，可为部分文本设置样式属性。
 
 ### HTML类
@@ -199,13 +201,26 @@ alt="Sun" />
 <html>
 <head>
 <style>
-.cities { //块级类
+.cities { //块级类;用 . 是类，引用时用 class=""; 用 # 是命名锚，引用时用 id=""
     background-color:black;
     color:white;
     margin:20px;
     padding:20px;
 } 
+
 span.red {color: red;} //行内类
+
+table.lamp { //表格类
+    width:100%;
+    border:1px solid #d4d4d4;
+}
+table.lamp th, td {
+    padding:10px;
+}
+table.lamp td {
+    width:40px;
+}
+
 </style>
 </head>
 
@@ -222,13 +237,98 @@ with a metropolitan area of over 13 million inhabitants.
 
 <h1>My <span class="red">Important</span> Heading</h1>
 
+<table class="lamp">
+<tr>
+  <th>
+    <img src="/images/lamp.jpg" alt="Note" style="height:32px;width:32px">
+  </th>
+  <td>
+    The table element was not designed to be a layout tool.
+  </td>
+</tr>
+</table>
+
 </body>
 </html>
-
 ```
 
+## HTML响应式web设计
+RWD 指的是响应式 Web 设计（Responsive Web Design）
+
+RWD 能够以可变尺寸传递网页
+
+RWD 对于平板和移动设备是必需的
+
+1.自己创建； 2.使用Bootstrap（最流行的开发响应式 web 的 HTML, CSS, 和 JS 框架）
+
+## HTML框架
+
+**框架结构标签**`<frameset>`定义如何将窗口分割为框架
+每个 frameset 定义了一系列行或列
+rows/columns 的值规定了每行或每列占据屏幕的面积百分比
+
+**框架标签**`<Frame>`定义了放置在每个框架中的 HTML 文档
+
+<html>
+
+<frameset cols="50%,50%">
+  <frameset rows="30%,70%">
+  	<frame src="/example/html/frame_b.html">
+  	<frame src="/example/html/frame_c.html">
+  </frameset>
+	<frame src="/example/html/frame_a.html">
+
+<noframes>
+<body>您的浏览器无法处理框架！</body>
+</noframes>
+
+</frameset>
+
+</html>
+
+**重要提示：**不能将 `<body></body> `标签与 `<frameset></frameset>` 标签同时使用！不过，假如你添加包含一段文本的` <noframes> `标签，就必须将这段文字嵌套于`<body></body>` 标签内。
 
 
+### 导航框架
+主页面
 
+```shell
+<html>
 
+<frameset cols="10%,90%">
+	<frame src="index.html"></frame>
+	<frame src="frame_a.html#h66" name="content"></frame> //#定位到对应页面的id为content的标签处
+</frameset>
 
+</html>
+```
+导航栏
+```shell
+<html>
+<body>
+<a href="frame_a.html" target="content">Frame a</a><br />
+<a href="frame_b.html" target="content">Frame b</a><br />
+<a href="frame_c.html" target="content">Frame c</a><br />
+</body>
+</html>
+```
+注意`name`和`target`对应，在目标框架内显示。
+
+### 内联框架 iframe
+在网页内显示网页
+
+`iframe` 可用作链接的目标（target）。链接的 `target` 属性必须引用 iframe 的 `name` 属性。新链接的网页会在iframe中显示。
+
+## HTML脚本
+`<script>` 标签用于定义客户端脚本，比如 JavaScript。既可包含脚本语句，也可通过 src 属性指向外部脚本文件。
+  
+ `<noscript>` 标签提供无法使用脚本时的替代内容，可包含普通 HTML 页面的 body 元素中能够找到的所有元素。只有在浏览器不支持脚本或者禁用脚本时，才会起作用。
+
+如果老式的浏览器没法识别 <script> 标签，那么 <script> 标签所包含的内容将以文本方式显示在页面上。为了避免这种情况发生，你应该将脚本隐藏在注释标签当中。那些老的浏览器将忽略这些注释，不会将标签的内容显示到页面上。而那些新的浏览器将读懂这些脚本并执行它们，即使代码被嵌套在注释标签内。
+  
+## HTML路径
+相对路径：指向相对于当前页面的文件
+
+绝对路径：指向一个因特网文件的完整 URL
+
+使用相对路径是个好习惯，使用了相对路径，网页就不会与当前的基准 URL 进行绑定。所有链接在当地电脑上 (localhost) 或未来的公共域中均可正常工作。
