@@ -117,4 +117,60 @@ This is a paragraph
 
 **注意：** 假如页面被固定在框架之内 `target="_top"` 跳出框架，在当前窗口显示。
 
+## HTML图像标签
+`align`所有标签中对齐方式的属性
+`alt`替换文本
+
+### 客户端图像映射
+
+(1)在`<img>`中设置usemap属性。
+
+(2)在`<map>`中设置name/id属性(二者属性值必须相同)
+```shell
+<img
+src="/i/eg_planets.jpg"
+usemap="#planetmap"
+alt="Planets" />
+
+<map name="planetmap" id="planetmap">
+
+<area
+shape="circle"
+coords="180,139,14"//圆心，半径
+href ="/example/html/venus.html"
+target ="_blank"
+alt="Venus" />
+
+<area
+shape="circle"
+coords="129,161,10"
+href ="/example/html/mercur.html"
+target ="_blank"
+alt="Mercury" />
+
+<area
+shape="rect"
+coords="0,0,110,260"//矩形左上角，右下角
+href ="/example/html/sun.html"
+target ="_blank"
+alt="Sun" />
+
+</map>
+```
+`<area>`定义图像地图中的可点击区域，每个区域都是一个超链接
+
+`<map>`img 元素中的 "usemap" 属性引用 map 元素中的 "id" 或 "name" 属性（根据浏览器），所以同时向 map 元素添加了 "id" 和 "name" 属性
+
+### 服务器端图像映射
+
+```shell
+<a href="/example/html/html_ismap.html">
+<img src="/i/eg_planets.jpg" ismap />
+</a>
+```
+把鼠标移动到图像上或点击某处时，浏览器会显示鼠标坐标（相对于图像的左上角），或发送到服务器端。特殊的服务器端软件（在本例中是 /example/html/html_ismap.html 程序）可以根据这些坐标来做出响应。
+
+**注意：**只有当 <img> 元素属于带有有效 href 属性的 <a> 元素的后代时，才允许 ismap 属性。
+ 
+
 
