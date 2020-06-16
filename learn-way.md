@@ -170,7 +170,65 @@ alt="Sun" />
 ```
 把鼠标移动到图像上或点击某处时，浏览器会显示鼠标坐标（相对于图像的左上角），或发送到服务器端。特殊的服务器端软件（在本例中是 /example/html/html_ismap.html 程序）可以根据这些坐标来做出响应。
 
-**注意：**只有当 <img> 元素属于带有有效 href 属性的 <a> 元素的后代时，才允许 ismap 属性。
+**注意：**  只有当 <img> 元素属于带有有效 href 属性的 <a> 元素的后代时，才允许 ismap 属性。
  
+## HEML表格、列表
+表格：行列项目
+
+`<col>` 元素是仅包含属性的空元素
+
+为 `<colgroup>` 标签添加 class 属性。这样就可以使用 CSS 来负责对齐方式、宽度和颜色等等
+
+`<thead><tfoot><tbody>`必须一起使用
+
+列表：一列项目。
+
+有序/无序列表：列表始于 `<ul>/<ol>` 标签。每个列表项始于 `<li>` 标签
+
+自定义列表：不仅仅是一列项目，而是项目及其注释的组合。列表以`<dl>` 标签开始。每个自定义列表项以 `<dt>` 开始。每个自定义列表项的定义以 `<dd>` 开始。
+
+## HTML 布局
+
+`<div>`块级元素，定义文档中的分区或节，浏览器会在其前后显示折行。与 CSS 一同使用，可对大的内容块设置样式属性； 另一个常见的用途是文档布局。
+
+`<span>`内联元素，组合文档中的行内元素，用作文本的容器。与 CSS 一同使用时，可为部分文本设置样式属性。
+
+### HTML类
+设置类，为元素的类定义 CSS 样式。为相同的类设置相同的样式，或者为不同的类设置不同的样式。
+```shell
+<html>
+<head>
+<style>
+.cities { //块级类
+    background-color:black;
+    color:white;
+    margin:20px;
+    padding:20px;
+} 
+span.red {color: red;} //行内类
+</style>
+</head>
+
+<body>
+
+<div class="cities">
+<h2>London</h2>
+<p>
+London is the capital city of England. 
+It is the most populous city in the United Kingdom, 
+with a metropolitan area of over 13 million inhabitants.
+</p>
+</div> 
+
+<h1>My <span class="red">Important</span> Heading</h1>
+
+</body>
+</html>
+
+```
+
+
+
+
 
 
