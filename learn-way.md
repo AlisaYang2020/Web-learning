@@ -345,6 +345,93 @@ rows/columns 的值规定了每行或每列占据屏幕的面积百分比
 `<meta>` 标签提供关于 HTML 文档的元数据。始终位于 head 元素中, 数据不会显示在页面上，但是对于机器是可读的。
 `name` 和 `content` 属性的作用是描述页面的内容，规定页面的描述、关键词、文档的作者、最后修改时间以及其他元数据。
 
+## HTML实体
+预留字符必须被替换为字符实体
+```shell
+&entity_name;
+或者
+&#entity_number;
+```
+使用实体名易于记忆，但实体数字的支持却很好。
+
+不间断空格(&nbsp;)
+
+**HTML实体符号参考手册：** https://www.w3school.com.cn/tags/html_ref_entities.html
+
+## HTML统一资源定位器 URL
+
+Uniform Resource Locator，中文也译为“统一资源定位符”，也称为网址(网页地址)
+
+```shell
+scheme://host.domain:port/path/filename
+```
+解释：
+
+scheme - 定义因特网服务的类型。最常见的类型是 http
+
+host - 定义域主机（http 的默认主机是 www）
+
+domain - 定义因特网域名，比如 w3school.com.cn
+
+:port - 定义主机上的端口号（http 的默认端口号是 80）
+
+path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。
+
+filename - 定义文档/资源的名称
+
+Web 浏览器通过 URL 从 web 服务器请求页面
+
+URL 编码会将字符转换为可通过因特网传输的格式：1. URL 只能使用 ASCII 字符集来通过因特网进行发送；2. 使用 "%" 其后跟随两位的十六进制数来替换非 ASCII 字符；3. 不能包含空格。URL 编码通常使用 + 来替换空格
+
+
+## HTML `<!DOCTYPE>` 标签
+`<!DOCTYPE>` 声明必须是 HTML 文档的第一行，位于 html 标签之前。
+
+`<!DOCTYPE>` 声明不是 HTML 标签；它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令。
+
+始终向 HTML 文档添加 !DOCTYPE 声明，这样浏览器才能获知文档类型。
+
+在 HTML5 中只有一种声明：`<!DOCTYPE html>`
+
+## HTML表单`<form>`
+用于收集用户输入
+
+`<input>` 元素根据不同的 type 属性，可以变化为多种形态
+
+`<select>` 元素定义下拉列表；`<option>` 元素定义待选择的选项；与 `<input>` 元素的 list 属性引用 <datalist> 元素效果类似。
+
+`<textarea>` 元素定义多行输入字段。单行字段定义 `<input type="text">`
+
+`<button>` 元素定义可点击的按钮
+
+`<datalist>` 元素为 <input> 元素规定预定义选项列表。input 元素的 list 属性必须引用 datalist 元素的 id 属性
+
+### 输入类型`<input type="">`
+
+文本、密码、提交、选择、按钮、数字（数字值、滑块控件）、日期、时间、颜色、邮件、搜索字段、电话号、网址、list
+
+### 输入属性
+`value` 属性规定输入字段的初始值
+
+`name` 有此属性的输入字段才会传递到 `action` 指向的页面或程序
+
+`readonly` 属性规定输入字段为只读（不能修改）。不需要值，它等同于 readonly="readonly"
+
+`disabled` 属性规定输入字段是禁用的。被禁用的元素是不可用和不可点击的。被禁用的元素**不会被提交**。不需要值，它等同于 disabled="disabled"
+
+`size` 属性规定输入字段的尺寸（以字符计）；`maxlength` 属性规定输入字段允许的最大长度
+
+`form` 属性规定 input 元素所属的一个或多个表单。input 元素的 form 属性必须引用 所属表单 form 元素的 id 属性
+
+```shell
+<form action="action_page.php" id="form1">
+   First name: <input type="text" name="fname"><br>
+   <input type="submit" value="Submit">
+</form>
+
+ Last name: <input type="text" name="lname" form="form1"> //输入字段位于 HTML 表单之外（但仍属表单）
+```
+
 
 
 
