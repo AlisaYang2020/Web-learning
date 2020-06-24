@@ -437,6 +437,117 @@ URL 编码会将字符转换为可通过因特网传输的格式：1. URL 只能
  Last name: <input type="text" name="lname" form="form1"> //输入字段位于 HTML 表单之外（但仍属表单）
 ```
 
+## HTML媒体
+Web 上的多媒体指的是音效、音乐、视频和动画等。
 
+WAVE 是因特网上最受欢迎的**无压缩**声音格式
+
+MP4 格式是一种新的即将普及的因特网视频格式
+
+`<object> <embed>` 用于加载插件，定义资源（通常非 HTML 资源）的容器，根据类型，它们既会由浏览器显示，也会由外部插件显示。
+
+```shell 
+// 
+<object width="100%" height="100%"
+type="video/x-ms-asf" url="/i/3d.wmv" data="3d.wmv"
+classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6">
+<param name="url" value="3d.wmv">
+<param name="filename" value="3d.wmv">
+<param name="autostart" value="1">
+<param name="uiMode" value="full" />
+<param name="autosize" value="1">
+<param name="playcount" value="1">                              
+<embed type="application/x-mplayer2" src="/i/3d.wmv" width="100%" height="100%" autostart="true" showcontrols="true" pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"></embed>
+</object>
+```
+
+
+### 音频
+
+`<audio> <embed>`是 HTML5 元素。
+
+```shell
+<audio controls="controls" height="100" width="100">
+  <source src="song.mp3" type="audio/mp3" />
+  <source src="song.ogg" type="audio/ogg" />
+<embed height="100" width="100" src="song.mp3" />
+</audio>
+```
+HTML5 audio 元素会尝试以 mp3 或 ogg 来播放音频。如果失败，代码将回退尝试 embed 元素。
+
+向网站添加音频的最简单方法，使用雅虎播放器：
+
+```shell
+<a href="song.mp3">Play Sound</a> // 把 MP3 文件链接到 HTML 中，JS 会自动地为每首歌创建播放按钮
+
+<script type="text/javascript" src="http://mediaplayer.yahoo.com/js"> // 插入网页底部即可
+</script>
+```
+
+如果网页包含指向媒体文件的超链接，用户点击该链接，大多数浏览器会使用“辅助应用程序”来播放文件。
+
+### 视频
+
+最好的 HTML 视频插入解决方法：video + object + embed
+
+```shell
+<video width="320" height="240" controls="controls">
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  <source src="movie.webm" type="video/webm" />
+  <object data="movie.mp4" width="320" height="240">
+    <embed src="movie.swf" width="320" height="240" />
+  </object>
+</video>
+```
+HTML5 video 元素会尝试播放以 mp4、ogg 或 webm 格式中的一种来播放视频。如果均失败，则回退到 embed 元素。
+
+简单方法是 使用优酷等视频网站
+```shell
+<embed src="http://player.youku.com/player.php/sid/XMzI2NTc4NTMy/v.swf" 
+width="480" height="400" 
+type="application/x-shockwave-flash">
+</embed>
+```
+
+# HTML5
+
+## 视频
+
+video 元素允许多个 source 元素。source 元素可以链接不同的视频文件。浏览器将使用第一个可识别的格式。video 元素开闭标签之间插入的内容是供不支持 video 元素的浏览器显示的。
+```shell
+<video src="movie.ogg" width="320" height="240" controls="controls">
+Your browser does not support the video tag.
+</video>
+
+<video width="320" height="240" controls="controls">
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+```
+
+**Video + DOM**
+
+video 元素同样拥有方法、属性和事件；
+
+音频 `<audio>` 使用方法基本同 video
+
+## 拖放（Drag 和 drop）
+在 HTML5 中，拖放是标准的一部分，任何元素都能够拖放s
+
+**被拖元素** 
+
+```shell
+<img id="drag1" src="img_logo.gif" 
+draggable="true" // 使元素可拖动
+ondragstart="drag(event)" // 规定拖动时发生的事件，这里调用了一个函数，drag(event)，规定了被拖动的数据
+width="336" height="69" />
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+```
 
 
